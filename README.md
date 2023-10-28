@@ -1,2 +1,3 @@
 # Coursera-learnings
-Test repo for coursera learning
+
+This is assignment1 Solution.
