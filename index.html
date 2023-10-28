@@ -1,19 +1,31 @@
-<!DOCTYPE html>
-<html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body>
+<!doctype html>
+<html lang="en" ng-app="LunchCheckerApp"> <!-- Initialize AngularJS app -->
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> <!-- Include AngularJS library -->
+    <script src="app.js"></script> <!-- Include your AngularJS controller script -->
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body ng-controller="LunchCheckerController">
+   <div class="container">
+     <h1>Lunch Checker</h1>
 
-<p>Change the value of the input field:</p>
-
-<div ng-app="" ng-init="myCol='lightblue'">
-
-<input style="background-color:{{myCol}}" ng-model="myCol">
-
-</div>
-
-<p>AngularJS resolves the expression and returns the result.</p>
-
-<p>The background color of the input box will be whatever you write in the input field.</p>
-
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+                    placeholder="list comma separated dishes you usually have for lunch"
+                    class="form-control"
+                    ng-model="lunchMenu">
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="checkLunch()">Check If Too Much</button>
+         </div>
+         <div class="form-group message">
+           {{ message }}
+         </div>
+   </div>
 </body>
 </html>
