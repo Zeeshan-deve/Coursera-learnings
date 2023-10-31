@@ -1,5 +1,5 @@
 # Coursera-learnings
 
-This is assignment1 Solution.
+This is odule2-solution Solution.
 
-Make sure to include app.js with my controller logic project for this code to work. This example demonstrates how to use AngularJS to handle user input and display dynamic messages based on that input.
+This code sets up an AngularJS application with a controller that handles the logic for your shopping list. It pre-populates the "To Buy" list, allows you to move items to the "Already Bought" list, and displays the appropriate messages based on the lists' contents.
