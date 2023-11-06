@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="NarrowItDownApp">
 <head>
+    <meta charset="UTF-8">
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
@@ -8,18 +9,30 @@
 </head>
 <body>
     <div class="container" ng-controller="NarrowItDownController as narrowCtrl">
-        <h1>Narrow Down Your Chinese Menu Choice</h1>
+        <h1>Narrow Down Your Menu Choice</h1>
+
         <div class="form-group">
-            <input type="text" placeholder="search term" class="form-control" ng-model="narrowCtrl.searchTerm">
+            <input type="text" placeholder="Search term" class="form-control" ng-model="narrowCtrl.searchTerm">
         </div>
         <div class="form-group narrow-button">
-            <button class="btn btn-primary" ng-click="narrowCtrl.search()">Narrow It Down For Me!</button>
+            <button class="btn btn-primary" ng-click="narrowCtrl.narrowItDown()">Narrow It Down For Me!</button>
         </div>
-        <found-items found-items="narrowCtrl.found" on-remove="narrowCtrl.removeItem(index)"></found-items>
+
+        <div ng-show="narrowCtrl.showResults">
+            <ul>
+                <li ng-repeat="item in narrowCtrl.foundItems">
+                    {{ item.name }}, {{ item.short_name }}, {{ item.description }}
+                    <button class="btn btn-danger" ng-click="narrowCtrl.removeItem($index)">Don't want this one!</button>
+                </li>
+            </ul>
+        </div>
+
+        <p ng-show="narrowCtrl.nothingFound">Nothing found</p>
     </div>
 
-    <!-- Include AngularJS library and app.js here -->
+    <!-- Include your AngularJS app.js and controller.js files here -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="controller.js"></script>
 </body>
 </html>
